@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Fake News Detector</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+  <div class="page-wrap">
+    <div class="app">
+      <header>
+        <h1>Fake News Detector</h1>
+        <p class="subtitle">Enter the author name and/or the news title, then press Predict.</p>
+      </header>
+
+      <div class="panel">
+        <div class="input-row">
+          <div class="input-group">
+            <label for="author" class="field-label">Author</label>
+            <input id="author" type="text" placeholder="Enter author name" autocomplete="off" />
+          </div>
+
+          <div class="input-group">
+            <label for="title" class="field-label">Title</label>
+            <input id="title" type="text" placeholder="Enter news title" autocomplete="off" />
+          </div>
+        </div>
+
+        <div class="actions">
+          <button id="predictBtn" class="btn" disabled>Predict</button>
+          <button id="clearBtn" class="btn secondary">Clear</button>
+        </div>
+
+        <div class="small-note">Model loaded locally , results are for demonstration only.</div>
+
+        <div id="result" class="result hidden" aria-live="polite">
+          <div id="label" class="label"></div>
+          <div id="confidence" class="confidence"></div>
+          <pre id="processed" class="processed"></pre>
+        </div>
+      </div>
+    </div>
+
+    <div class="page-note">
+      <h3>What does this app do?</h3>
+      <p>
+        Provide an author or a title. The model analyzes the provided text and returns a prediction (Real or Fake).
+        Use this as a quick signal , not a definitive source. Always verify with trusted outlets.
+      </p>
+    </div>
+  </div>
+
+  <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>

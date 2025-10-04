@@ -1,0 +1,191 @@
+/* Full style.css for Fake News Detector
+   - Grey gradient background with soft vignette
+   - Centered elevated card
+   - Blue Predict button & Red Clear button
+   - Labels above inputs
+   - Small explanatory footer note
+*/
+
+/* color tokens */
+:root{
+  --page-bg-center: #363636;
+  --page-bg-edge: #2a2a2a;
+  --card-bg: #111114;
+  --panel-bg: rgba(255,255,255,0.02);
+  --muted: #adb3b8;
+  --accent: #ffd89a;
+}
+
+/* reset */
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{
+  font-family: Inter, "Segoe UI", Roboto, Arial, sans-serif;
+  color: #eef1f4;
+  min-height:100vh;
+  background:
+    radial-gradient(1200px 600px at 10% 10%, rgba(255,255,255,0.02), transparent 10%),
+    radial-gradient(900px 500px at 90% 90%, rgba(0,0,0,0.18), transparent 20%),
+    linear-gradient(180deg, var(--page-bg-center), var(--page-bg-edge));
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:36px;
+}
+
+/* page wrapper to control vertical layout */
+.page-wrap {
+  width:100%;
+  max-width:980px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:18px;
+}
+
+/* main app card */
+.app{
+  width: 820px;
+  max-width:96%;
+  background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(0,0,0,0.15));
+  border-radius:16px;
+  padding:26px;
+  box-shadow: 0 28px 80px rgba(0,0,0,0.65);
+  border: 1px solid rgba(255,255,255,0.02);
+}
+
+/* header */
+header { text-align:center; margin-bottom:8px; }
+h1 { font-size:24px; color:var(--accent); text-shadow:0 3px 8px rgba(0,0,0,0.6) }
+.subtitle { color:var(--muted); font-size:13px; margin-top:6px }
+
+/* inner panel */
+.panel { margin-top:8px; background:var(--panel-bg); padding:14px; border-radius:10px; border:1px solid rgba(0,0,0,0.45); }
+
+/* inputs layout */
+.input-row { display:grid; gap:10px; grid-template-columns: 1fr; }
+
+/* labeled input group */
+.input-group { display:block; }
+
+/* label above fields */
+.field-label {
+  display: block;
+  font-size: 12px;
+  color: var(--muted);
+  margin: 6px 0 6px 6px;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+}
+
+/* inputs */
+input, textarea {
+  width:100%;
+  padding:14px 16px;
+  border-radius:8px;
+  border:1px solid rgba(255,255,255,0.03);
+  background: rgba(0,0,0,0.45);
+  color: #eef1f4;
+  outline:none;
+  font-size:14px;
+  transition: transform .08s ease, box-shadow .12s ease;
+}
+input::placeholder, textarea::placeholder { color: rgba(230,230,230,0.45) }
+textarea { min-height:140px; resize:vertical; }
+
+/* focus */
+input:focus, textarea:focus {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 26px rgba(0,0,0,0.55), 0 0 0 6px rgba(74,176,255,0.03);
+}
+
+/* actions row */
+.actions {
+  display:flex;
+  gap:12px;
+  margin-top:12px;
+}
+
+/* button base */
+.btn {
+  flex:1;
+  padding:12px 18px;
+  font-weight:700;
+  border-radius:10px;
+  cursor:pointer;
+  border:none;
+  font-size:15px;
+  transition: all .15s ease;
+}
+
+/* Predict button – blue gradient */
+#predictBtn {
+  background: linear-gradient(135deg, #4dabf7, #1c7ed6);
+  color: #fff;
+  box-shadow: 0 6px 18px rgba(28, 126, 214, 0.35);
+}
+#predictBtn:hover {
+  background: linear-gradient(135deg, #74c0fc, #228be6);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(28, 126, 214, 0.45);
+}
+
+/* Predict disabled state */
+#predictBtn[disabled] {
+  cursor: not-allowed;
+  opacity: 0.6;
+  box-shadow: none;
+  transform: none;
+}
+
+/* Clear button – red gradient */
+#clearBtn {
+  background: linear-gradient(135deg, #ff6b6b, #fa5252);
+  color: #fff;
+  box-shadow: 0 6px 18px rgba(250, 82, 82, 0.35);
+}
+#clearBtn:hover {
+  background: linear-gradient(135deg, #ff8787, #f03e3e);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(250, 82, 82, 0.45);
+}
+
+/* small note inside card */
+.small-note { margin-top:10px; font-size:12px; color:var(--muted); text-align:center }
+
+/* result box */
+.result { margin-top:14px; padding:12px; border-radius:8px; background: rgba(0,0,0,0.45); color:#fff }
+.hidden{ display:none }
+.label { font-weight:800; font-size:18px; margin-bottom:4px }
+.confidence { color: var(--muted); margin-bottom:6px }
+.processed { color:#d5d5d5; font-size:13px; white-space:pre-wrap }
+
+/* page-level small description (footer text) */
+.page-note {
+  max-width:760px;
+  text-align:center;
+  color: var(--muted);
+  font-size:13px;
+  line-height:1.35;
+  padding: 8px 12px;
+  border-radius:8px;
+  margin-top:4px;
+}
+.page-note h3 { color:#fff; font-size:14px; margin-bottom:6px; font-weight:700 }
+.page-note p { margin:0; color:var(--muted) }
+
+/* accessibility focus outlines for keyboard users */
+input:focus-visible, button:focus-visible {
+  outline: 2px solid rgba(255,255,255,0.06);
+  outline-offset: 2px;
+  border-radius: 8px;
+}
+
+/* responsiveness */
+@media (max-width:720px) {
+  .app{ padding:18px }
+  textarea{ min-height:120px }
+  .page-note { padding:10px }
+  .actions { flex-direction: column; }
+  .btn { width:100%; }
+}
