@@ -1,4 +1,3 @@
-
 # 📰 Fake News Detection with Logistic Regression
 
 This repository contains my **first Machine Learning project** – a Fake News Detection model built using **Logistic Regression** in Python.  
@@ -30,5 +29,6 @@ I used a dataset of news headlines and authors, combined them into a single feat
 ---
 
 ## 🌐 Predictive System
-The model expects a news input in the format **(Author + Headline)**, similar to the dataset.  
+The model expects a news input where any news headline/text can be entered, and the model predicts whether it is Real News or Fake News.
+
 
